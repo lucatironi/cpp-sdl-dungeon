@@ -5,22 +5,26 @@
 
 class Game
 {
-  public:
-    Game();
-    ~Game();
+    public:
+        Game();
+        ~Game();
 
-    void Init(const char *title, int windowWidth, int windowHeight);
-    void Close();
+        void Init(const char *title, int windowWidth, int windowHeight);
+        void Close();
 
-    void ProcessInput(float deltaTime);
-    void Update(float deltaTime);
-    void Render();
-    bool Running() { return IsRunning; }
+        void ProcessInput(float deltaTime);
+        void Update(float deltaTime);
+        void Render();
 
-  private:
-    bool IsRunning;
-    SDL_Window *Window;
-    SDL_Renderer *Renderer;
+        bool IsRunning;
+        bool Keys[1024];
+        bool KeysProcessed[1024];
+
+      private:
+        int WindowWidth;
+        int WindowHeight;
+        SDL_Window *Window;
+        SDL_Renderer *Renderer;
 };
 
 #endif
